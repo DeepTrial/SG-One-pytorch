@@ -1,4 +1,4 @@
-#SG-One-pytorch 
+# SG-One-pytorch 
 
  [Paper: SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation](https://arxiv.org/abs/1810.09091)
 
