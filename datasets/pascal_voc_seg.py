@@ -132,17 +132,17 @@ class pascal_voc_seg(imdb):
         return items
     
     def get_labels(self, mask_path):
-        mask = self.read_mask(mask_path)        #load mask
+        ''' read the mask and return the label of the corresponding object according to the colormap '''
+        mask = self.read_mask(mask_path) 
         height,width=mask.shape[:2]
         labels=[]
-        for hi in range(height):                #according the color of every pixel to determine the categories 
+        for hi in range(height):                # associate the RGB color of the object to get the corresponding label 
             for wj in range(width): 
                 temp=(mask[hi,wj]*256).astype(np.uint8).tolist()
                 for l in range(20):
-                    if operator.eq(temp,self.color_map[l]):
+                    if operator.eq(temp[:-1],self.color_map[l]):
                         labels.append(l)
         labels=np.unique(labels).tolist()
-        
         return labels
 
     def mask_path_at(self, i):
