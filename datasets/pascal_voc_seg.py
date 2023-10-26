@@ -131,7 +131,8 @@ class pascal_voc_seg(imdb):
 
         return items
     
-def get_labels(self, mask_path):
+    def get_labels(self, mask_path):
+        ''' read the mask and return the label of the corresponding object according to the colormap '''
         mask = self.read_mask(mask_path) 
         height,width=mask.shape[:2]
         labels=[]
