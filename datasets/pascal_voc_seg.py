@@ -136,7 +136,7 @@ class pascal_voc_seg(imdb):
         mask = self.read_mask(mask_path) 
         height,width=mask.shape[:2]
         labels=[]
-        for hi in range(height):                # associate the RGB color of every pixel to get the corresponding label 
+        for hi in range(height):                # associate the RGB color of the object to get the corresponding label 
             for wj in range(width): 
                 temp=(mask[hi,wj]*256).astype(np.uint8).tolist()
                 for l in range(20):
